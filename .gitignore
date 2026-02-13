@@ -1,0 +1,10 @@
+medgemma-1.5-4b-it
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
+*.bak
+*.bak.*
+*.ckpt
+*.old
+*.pyc
+/__pycache__
