@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedGemma Medical Assistant</title>
+    <link rel="stylesheet" href="Frontend/MedGemma.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🩺 MedGemma Medical Assistant</h1>
+            <p>An AI-powered medical information assistant (for educational purposes only)</p>
+        </div>
+
+        <div class="warning">
+            ⚠️ This AI assistant is designed for educational purposes only. Always seek guidance from qualified
+            healthcare professionals for medical advice.
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="message bot-message">
+                Hello! I’m MedGemma, your medical information assistant. How can I help you?
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <div class="image-preview" id="imagePreview"></div>
+
+            <div class="input-wrapper">
+                <div class="textarea-wrapper">
+                    <textarea id="inputPrompt" placeholder="Type a message... (Shift+Enter for new line)"
+                        rows="2"></textarea>
+                    <button class="image-button" id="imageButton" title="Attach image">
+                        📎
+                    </button>
+                    <input type="file" id="inputImage" accept="image/*">
+                </div>
+                <button class="send-button" id="sendButton" title="Send message">
+                    ➤
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Frontend/MedGemma.js"></script>
+</body>
+
+</html>
