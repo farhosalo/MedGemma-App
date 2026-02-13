@@ -8,3 +8,4 @@ medgemma-1.5-4b-it
 *.old
 *.pyc
 /__pycache__
+Samples/
