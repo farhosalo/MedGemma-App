@@ -37,8 +37,11 @@ def optimizeImage(imageFile, maxSize=(768, 768)):
 model = None
 processor = None
 
-# Load max token length from configuration
+# Global max token length
 maxTokenLength = None
+
+# Global device variable
+device = None
 
 
 @asynccontextmanager
@@ -51,13 +54,14 @@ async def lifespan(app: FastAPI):
 
     modelId = modelConfig.get("MED_GEMMA_PATH", "medgemma-1.5-4b-it")
     maxTokenLength = modelConfig.get("MAX_TOKEN_LENGTH", 500)
+    device = modelConfig.get("ACCELERATOR", "cpu")
 
     logging.info("Loading model... This may take a minute.")
     processor = AutoProcessor.from_pretrained(modelId)
     model = AutoModelForImageTextToText.from_pretrained(
         modelId,
         dtype=torch.bfloat16,
-        device_map="cpu",
+        device_map=device,
     )
     model.eval()  # Set the model to evaluation mode
     logging.info("Model loaded successfully!")
@@ -135,7 +139,7 @@ def generateResponse(messages):
             **inputs,
             max_new_tokens=maxTokenLength,
             do_sample=False,
-        )  # .to("mps")
+        ).to(device)
         generation = generation[0][input_len:]
     response_text = processor.decode(generation, skip_special_tokens=True)
     html = markdown.markdown(response_text)
