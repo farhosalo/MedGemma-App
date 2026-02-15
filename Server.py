@@ -11,6 +11,7 @@ from PIL import Image
 import io
 import markdown
 from bs4 import BeautifulSoup
+import Configuration
 
 from contextlib import asynccontextmanager
 
@@ -36,11 +37,20 @@ def optimizeImage(imageFile, maxSize=(768, 768)):
 model = None
 processor = None
 
+# Load max token length from configuration
+maxTokenLength = None
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global model, processor
-    modelId = "medgemma-1.5-4b-it"
+    global model, processor, maxTokenLength
+
+    modelConfig = Configuration.config["Model"]
+    if not modelConfig:
+        raise RuntimeError("Model configuration not found in Configuration.py")
+
+    modelId = modelConfig.get("MED_GEMMA_PATH", "medgemma-1.5-4b-it")
+    maxTokenLength = modelConfig.get("MAX_TOKEN_LENGTH", 500)
 
     logging.info("Loading model... This may take a minute.")
     processor = AutoProcessor.from_pretrained(modelId)
@@ -123,7 +133,7 @@ def generateResponse(messages):
     with torch.inference_mode():
         generation = model.generate(
             **inputs,
-            max_new_tokens=500,
+            max_new_tokens=maxTokenLength,
             do_sample=False,
         )  # .to("mps")
         generation = generation[0][input_len:]
