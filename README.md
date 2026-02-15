@@ -70,4 +70,12 @@ Contributions are welcome! If you find any bugs or have ideas for new features, 
 - **Third-Party Libraries and Licenses**: This project uses several third-party libraries. See [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES.md) for a complete list of dependencies and their licenses.
 - **MedGemma Model**: Gemma Terms of Use (<https://ai.google.dev/gemma/terms>)
 - **Users must obtain model weights separately from Google/HuggingFace**
-- **Additional copyright and attribution notices can be found in the [NOTICE](NOTICE.md) file.**
+
+## Attribution
+
+This application uses:
+
+- MedGemma 1.5-4B by Google
+- FastAPI
+- PyTorch
+- Hugging Face Transformers
