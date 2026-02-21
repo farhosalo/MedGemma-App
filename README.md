@@ -48,13 +48,9 @@ This application utilizes MedGemma 1.5-4B, which is governed by Google’s Gemma
 
 ## Run the application
 
-- Start the backend
-
 ```bash
-   python Server.py
+   python Run.py
 ```
-
-- Open the chat UI: Double click on MedGemmaUI.html
 
 ## Usage
 
