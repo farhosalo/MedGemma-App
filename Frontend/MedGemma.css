@@ -116,30 +116,6 @@ body {
     cursor: not-allowed;
 }
 
-/* .settings {
-    padding: 15px 20px;
-    background: #f8f9fa;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.setting-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.setting-item label {
-    font-size: 13px;
-    color: #666;
-}
-
-.setting-item input[type="range"] {
-    width: 100px;
-} */
-
 .loading {
     display: inline-block;
     width: 20px;
@@ -174,13 +150,6 @@ body {
     background: white;
     border-top: 1px solid #e0e0e0;
 }
-
-/* .image-preview {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-} */
 
 .input-wrapper {
     display: flex;
@@ -261,9 +230,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* .image-preview {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-} */
+.icon {
+    font-size: 24px;
+    color: gold;
+}
